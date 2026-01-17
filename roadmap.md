@@ -5,3 +5,4 @@ Enhancements:
 Desired Features:
   - Add error handling and logging.
   - Admin console.
+  - Turn it all into a container (with the database)

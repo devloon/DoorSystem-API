@@ -19,17 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //user
-Route::post('user/auth', [UserCtrl::class, 'authenticate']);
 Route::post('user/add', [UserCtrl::class, 'add']);
+Route::post('user/auth', [UserCtrl::class, 'authenticate']);
 Route::put('user/update', [UserCtrl::class, 'update']);
 Route::delete('user/delete', [UserCtrl::class, 'delete']);
-
-// cards
-Route::get('card/all', [CardCtrl::class, 'getall']);
-Route::post('card/add', [CardCtrl::class, 'add']);
-Route::put('card/update', [CardCtrl::class, 'update']);
-Route::delete('card/delete', [CardCtrl::class, 'delete']);
-Route::post('card/check', [CardCtrl::class, 'check']);
 
 // doors
 Route::get('door/all', [DoorCtrl::class, 'getall']);
@@ -37,11 +30,18 @@ Route::post('door/add', [DoorCtrl::class, 'add']);
 Route::put('door/update', [DoorCtrl::class, 'update']);
 Route::delete('door/delete', [DoorCtrl::class, 'delete']);
 
+// cards
+Route::get('card/all', [CardCtrl::class, 'getall']);
+Route::post('card/add', [CardCtrl::class, 'add']);
+Route::post('card/check', [CardCtrl::class, 'check']);
+Route::put('card/update', [CardCtrl::class, 'update']);
+Route::delete('card/delete', [CardCtrl::class, 'delete']);
+
 // Access
-Route::post('access/add', [AccessCtrl::class, 'add']);
-Route::delete('access/delete', [AccessCtrl::class, 'delete']);
-Route::post('access/check', [AccessCtrl::class, 'check']);
 Route::get('access/all', [AccessCtrl::class, 'getall']);
+Route::post('access/add', [AccessCtrl::class, 'add']);
+Route::post('access/check', [AccessCtrl::class, 'check']);
+Route::delete('access/delete', [AccessCtrl::class, 'delete']);
 
 //Logs
 Route::get('log/week', [LogCtrl::class, 'getPastWeek']);

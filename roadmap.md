@@ -1,6 +1,7 @@
 Enhancements:
   - Improve README.md.
-  - Use appropriate HTTP methods.
+  - Use appropriate HTTP methods. done.
+  - Use return codes well.
 
 Desired Features:
   - Add error handling and logging.

@@ -14,6 +14,8 @@ use PhpMqtt\Client\MqttClient;
 
 class AccessCtrl extends Controller
 {
+    public function getAll(){return Access::all();}
+
     public function add(Request $req)
     {
         try {
@@ -38,25 +40,6 @@ class AccessCtrl extends Controller
             'cardId' => $card->id,
             'doorId' => $door->id,
         ]);
-        return("Success!");
-    }
-
-    public function delete(Request $req)
-    {
-        try {
-            $req->validate([
-                'cardUid' => ['required', 'string', 'min:3', 'max:100'],
-                'doorName' => ['required', 'string', 'min:3', 'max:100'],
-            ]);
-        }catch(ValidationException $err){return $err->getMessage(); }
-
-        $card = RfidCard::where('uid', $req->cardUid)->first();
-        $door = Door::where('name', $req->doorName)->first();
-        if($card==null or $door==null){return ("Access not found!");}
-
-        $access = Access::where('cardId', $card->id)->where('doorId', $door->id)->first();
-        if($access == null){return ("Access not found!");}
-        $access->delete();
         return("Success!");
     }
 
@@ -98,7 +81,23 @@ class AccessCtrl extends Controller
         return 1;
     }
 
-    public function getAll(){
-        return Access::all();
+    public function delete(Request $req)
+    {
+        try {
+            $req->validate([
+                'cardUid' => ['required', 'string', 'min:3', 'max:100'],
+                'doorName' => ['required', 'string', 'min:3', 'max:100'],
+            ]);
+        }catch(ValidationException $err){return $err->getMessage(); }
+
+        $card = RfidCard::where('uid', $req->cardUid)->first();
+        $door = Door::where('name', $req->doorName)->first();
+        if($card==null or $door==null){return ("Access not found!");}
+
+        $access = Access::where('cardId', $card->id)->where('doorId', $door->id)->first();
+        if($access == null){return ("Access not found!");}
+        $access->delete();
+        return("Success!");
     }
+
 }

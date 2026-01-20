@@ -19,32 +19,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //user
-Route::post('user/auth', [UserCtrl::class, 'authenticate']);
 Route::post('user/add', [UserCtrl::class, 'add']);
-Route::post('user/update', [UserCtrl::class, 'update']);
-Route::post('user/delete', [UserCtrl::class, 'delete']);
-
-// cards
-Route::post('card/all', [CardCtrl::class, 'getall']);
-Route::post('card/add', [CardCtrl::class, 'add']);
-Route::post('card/update', [CardCtrl::class, 'update']);
-Route::post('card/delete', [CardCtrl::class, 'delete']);
-Route::post('card/check', [CardCtrl::class, 'check']);
+Route::post('user/auth', [UserCtrl::class, 'authenticate']);
+Route::put('user/update', [UserCtrl::class, 'update']);
+Route::delete('user/delete', [UserCtrl::class, 'delete']);
 
 // doors
-Route::post('door/all', [DoorCtrl::class, 'getall']);
+Route::get('door/all', [DoorCtrl::class, 'getall']);
 Route::post('door/add', [DoorCtrl::class, 'add']);
-Route::post('door/update', [DoorCtrl::class, 'update']);
-Route::post('door/delete', [DoorCtrl::class, 'delete']);
+Route::put('door/update', [DoorCtrl::class, 'update']);
+Route::delete('door/delete', [DoorCtrl::class, 'delete']);
+
+// cards
+Route::get('card/all', [CardCtrl::class, 'getall']);
+Route::post('card/add', [CardCtrl::class, 'add']);
+Route::post('card/check', [CardCtrl::class, 'check']);
+Route::put('card/update', [CardCtrl::class, 'update']);
+Route::delete('card/delete', [CardCtrl::class, 'delete']);
 
 // Access
+Route::get('access/all', [AccessCtrl::class, 'getall']);
 Route::post('access/add', [AccessCtrl::class, 'add']);
-Route::post('access/delete', [AccessCtrl::class, 'delete']);
 Route::post('access/check', [AccessCtrl::class, 'check']);
-Route::post('access/all', [AccessCtrl::class, 'getall']);
+Route::delete('access/delete', [AccessCtrl::class, 'delete']);
 
 //Logs
-Route::post('log/week', [LogCtrl::class, 'getPastWeek']);
-Route::post('log/month', [LogCtrl::class, 'getPastMonth']);
-Route::post('log/year', [LogCtrl::class, 'getPastYear']);
-Route::post('log/all', [LogCtrl::class, 'getAll']);
+Route::get('log/week', [LogCtrl::class, 'getPastWeek']);
+Route::get('log/month', [LogCtrl::class, 'getPastMonth']);
+Route::get('log/year', [LogCtrl::class, 'getPastYear']);
+Route::get('log/all', [LogCtrl::class, 'getAll']);

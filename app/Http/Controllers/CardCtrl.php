@@ -10,9 +10,7 @@ use PhpMqtt\Client\Facades\MQTT;
 
 class CardCtrl extends Controller
 {
-    public function getall(){
-        return RfidCard::all();
-    }
+    public function getall(){return RfidCard::all();}
     
     public function add(Request $req){
         try{ $req->validate([ 'uid'=>['required', 'string',  'min:3', 'max:100']]); }

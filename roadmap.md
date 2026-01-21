@@ -1,4 +1,5 @@
 ## Enhancements:
+- [x] Security patches (thanks dependabot).
 - [ ] Improve README.md (use proper markdown syntax like in here).
 - [x] Use appropriate HTTP methods.
 - [ ] Use return codes well.

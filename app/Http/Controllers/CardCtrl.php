@@ -20,7 +20,7 @@ class CardCtrl extends Controller
             return ("Card exists already!");
         }
         RfidCard::create(['uid'=>$req->uid]);
-        return ("Success!");
+        return 201;
     }
 
     public function update(Request $req){

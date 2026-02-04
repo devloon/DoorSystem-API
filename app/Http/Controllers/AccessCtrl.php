@@ -40,7 +40,7 @@ class AccessCtrl extends Controller
             'cardId' => $card->id,
             'doorId' => $door->id,
         ]);
-        return("Success!");
+        return 201;
     }
 
     public function check(Request $req)

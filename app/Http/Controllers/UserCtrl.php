@@ -28,6 +28,7 @@ class UserCtrl extends Controller
             'email' => $req->email,
             'password' => Hash::make($req->password)
         ]);
+        return 201;
     }
 
     public function authenticate(Request $req){

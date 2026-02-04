@@ -17,9 +17,10 @@ class LogCtrl extends Controller
         }catch(ValidationException $err){return $err->getMessage(); }
         
         Log::create([
-                'cardUid' => $req->cardUid,
-                'doorId' => $req->doorId
-            ]);
+            'cardUid' => $req->cardUid,
+            'doorId' => $req->doorId
+        ]);
+        return 201;
     }
 
     public function getAll(){

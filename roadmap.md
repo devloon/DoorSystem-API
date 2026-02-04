@@ -3,7 +3,7 @@
 - [x] Improve README.md (use proper markdown syntax like in here).
 - [x] Come up with a good name.
 - [x] Use appropriate HTTP methods.
-- [ ] Use return codes well.
+- [ ] Use response codes well.
 - [ ] Add error handling and logging.
 - [ ] Make the install more user friendly
 

@@ -30,7 +30,7 @@ class DoorCtrl extends Controller
             'location' => $req->location,
             'description' => $req->description,
         ]);
-        return ("Success!");
+        return 201;
     }
 
     public function update(Request $req)

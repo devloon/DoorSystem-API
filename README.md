@@ -1,28 +1,27 @@
-API for DoorSystem
-Uses PHP7.4 and MariaDB
+# NFC door lock
+Backend API for unlocking doors electronically with NFC cards.
 
-Prerequisites:
-
+# Installation
+## Prerequisites
 Apache2
-  libapache2-mod-php
+- libapache2-mod-php
 PHP:
-  PHP7.4
-  php-bcmath
-  php-cli
-  php-curl
-  php-common
-  php-gd
-  php-json
-  php-mbstring
-  php-mysql
-  php-tokenizer
-  php-xml
-  php-zip
+- PHP7.4
+- php-bcmath
+--php-cli
+- php-curl
+- php-common
+- php-gd
+- php-json
+- php-mbstring
+- php-mysql
+- php-tokenizer
+- php-xml
+- php-zip
 composer
-MariaDB-server (or mysql, not prefered)
-___________________________________________________________________________________________________
+MariaDB-server (or mysql, if you really want)
 
-Installation : (french follows english)
+## Installation
 
 One-shot apt install:
 doas apt install apache2 libapache2-mod-php php7.4-{bcmath,cli,curl,common,gd,json,mbstring,mysql,tokenizer,xml,zip} composer mariadb-server
@@ -56,36 +55,7 @@ doas systemctl restart apache2
 
 Server is now up and running
 
-___________________________________________________________________________________________________
+## Usage
+Send HTTP request, you get answer
 
-One-shot apt install:
-doas apt install apache2 libapache2-mod-php php7.4-{bcmath,cli,curl,common,gd,json,mbstring,mysql,tokenizer,xml,zip} composer mariadb-server
-
-Creer la base de donnees DoorSystem; // run in MariaDB, case sensitive!!
-
-On a GNU/Linux serveur (debian based) (j'utilise doas, vous avez probablement sudo!)
-dans le root du projet entrer les commandes:
-
-doas composer install --no-dev
-doas cp .env.example .env
-
-Modifier le ficher .env avec le nom de la bd (si c'est pas CarnetSante), le nom du user et le mot de passe.
-S'assurer que ce user a touts les access sur la bd
-grant all privileges on CarnetSante.* to 'labelo'@'localhost';
-
-doas chown www-data:www-data {route absolue vers le projet} // www-data est le user qui permet a Apache2 d'avoir acces, il est cree lors de l'installation de Apache2
-doas chmod 775 {route absolue vers le projet}
-
-doas php artisan migrate //pour creer les tables dans la bd
-doas php artisan key:generate //pour generer une cle d'encription
-
-Modifier le fichier carnetSanteAPI.conf (inclu dans le dossier config) 
-Specifier le path absolu vers le dossier public/ du projet dans DocumentRoot et Directory
-ServerName et ServerAlias s'ils sont incorrectes.
-
-copier le fichier carnetSanteAPI.conf vers /etc/apache2/sites-available/
-doas cp config/carnetSanteAPI.conf /etc/apache2/sites-available/
-doas a2ensite carnetSanteAPI.conf
-doas systemctl restart apache2
-
-le serveur est maintenant operationnel
+will make the readme better and more useful when I feel like it.

@@ -1,10 +1,11 @@
 ## Enhancements:
 - [x] Security patches (thanks dependabot).
-- [ ] Improve README.md (use proper markdown syntax like in here).
-- [ ] Come up with a good name.
+- [x] Improve README.md (use proper markdown syntax like in here).
+- [x] Come up with a good name.
 - [x] Use appropriate HTTP methods.
 - [ ] Use return codes well.
 - [ ] Add error handling and logging.
+- [ ] Make the install more user friendly
 
 ## Desired Features:
 - [ ] Admin console.

@@ -1,10 +1,14 @@
 ## Enhancements:
 - [x] Security patches (thanks dependabot).
 - [ ] Improve README.md (use proper markdown syntax like in here).
+- [ ] Come up with a good name.
 - [x] Use appropriate HTTP methods.
 - [ ] Use return codes well.
+- [ ] Add error handling and logging.
 
 ## Desired Features:
-- [ ] Add error handling and logging.
 - [ ] Admin console.
+- [ ] Make some values customisable through an admin console, such as all the urls and the door unlocking delay.
+- [ ] Manage cards and access on the admin console, then simplify the ESP's work to just read card and open door (the way it should've been from the start).
+- [ ] Add a usable asset to the releases instead of just code.
 - [ ] Turn it all into a container (with the database)

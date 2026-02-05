@@ -46,20 +46,4 @@ class CardCtrl extends Controller
         $card->delete();
         return ("Success!");
     }
-
-    // public function checkOld(Request $req){
-    //     $uid = $req->input('uid');
-    //     $cards = RfidCard::all();
-    //     foreach($cards as $card){
-    //         if ($card->uid == $uid)
-    //         {
-    //             MQTT::publish('/door/acsLvl', $card->accessLvl);
-    //             $log = new logCtrl();
-    //             $log->add($uid);
-    //             return $card->accessLvl;
-    //         }
-    //     }
-    //     return 0;
-    // }
-
 }

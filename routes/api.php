@@ -33,7 +33,6 @@ Route::delete('door/delete', [DoorCtrl::class, 'delete']);
 // cards
 Route::get('card/all', [CardCtrl::class, 'getall']);
 Route::post('card/add', [CardCtrl::class, 'add']);
-Route::post('card/check', [CardCtrl::class, 'check']);
 Route::put('card/update', [CardCtrl::class, 'update']);
 Route::delete('card/delete', [CardCtrl::class, 'delete']);
 

@@ -23,7 +23,7 @@ MariaDB-server (or mysql, if you really want)
 
 ## Installation
 
-One-liner apt install:
+One-line install using apt:
 sudo apt install apache2 libapache2-mod-php php7.4-{bcmath,cli,curl,common,gd,json,mbstring,mysql,tokenizer,xml,zip} composer mariadb-server
 
 Create database DoorSystem; // run in MariaDB, case sensitive!!

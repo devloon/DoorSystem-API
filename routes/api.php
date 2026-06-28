@@ -43,6 +43,7 @@ Route::post('access/check', [AccessCtrl::class, 'check']);
 Route::delete('access/delete', [AccessCtrl::class, 'delete']);
 
 //Logs
+Route::get('log/day', [LogCtrl::class, 'getPastDay']);
 Route::get('log/week', [LogCtrl::class, 'getPastWeek']);
 Route::get('log/month', [LogCtrl::class, 'getPastMonth']);
 Route::get('log/year', [LogCtrl::class, 'getPastYear']);

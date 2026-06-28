@@ -31,6 +31,15 @@ class LogCtrl extends Controller
             ->get();
     }
 
+    public function getPastDay(){
+        return Log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
+            ->join('RfidCards', 'Logs.cardId', '=', 'RfidCards.uid')
+            ->select('Doors.name as doorName', 'RfidCards.uid as cardUid', 'Logs.created_at as time', 'Logs.accessGranted')
+            ->where('Logs.created_at', '>=', now()->subDay())
+            ->orderBy('time','desc')
+            ->get();
+    }
+
     public function getPastWeek(){
         return Log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
             ->join('RfidCards', 'Logs.cardId', '=', 'RfidCards.uid')

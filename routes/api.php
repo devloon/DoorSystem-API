@@ -6,13 +6,13 @@ use App\Http\Controllers\AccessCtrl;
 use App\Http\Controllers\CardCtrl;
 use App\Http\Controllers\DoorCtrl;
 use App\Http\Controllers\LogCtrl;
-use App\Http\Controllers\UserCtrl;
+use App\Http\Controllers\userController;
 
 //user
-Route::post('user/add', [UserCtrl::class, 'add']);
-Route::post('user/auth', [UserCtrl::class, 'authenticate']);
-Route::put('user/update', [UserCtrl::class, 'update']);
-Route::delete('user/delete', [UserCtrl::class, 'delete']);
+Route::post('user/add', [userController::class, 'add']);
+Route::post('user/auth', [userController::class, 'authenticate']);
+Route::put('user/update', [userController::class, 'update']);
+Route::delete('user/delete', [userController::class, 'delete']);
 
 // doors
 Route::get('door/all', [DoorCtrl::class, 'getall']);

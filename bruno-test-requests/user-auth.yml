@@ -1,0 +1,22 @@
+info:
+  name: user-auth
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: http://localhost:8000/api/user/auth?email=john@doe.com&password=john@doe.com
+  params:
+    - name: email
+      value: john@doe.com
+      type: query
+    - name: password
+      value: john@doe.com
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

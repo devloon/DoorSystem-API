@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\user;
 use Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
-class UserCtrl extends Controller
+class userController extends Controller
 {
     public function add(Request $req){
         try{
@@ -19,11 +19,11 @@ class UserCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
     
-        if(User::where('email',$req->email)->first() != null){
+        if(user::where('email',$req->email)->first() != null){
             return ("Email already in use!");
         }
 
-        User::create([
+        user::create([
             'name' => $req->name,
             'email' => $req->email,
             'password' => Hash::make($req->password)
@@ -39,7 +39,7 @@ class UserCtrl extends Controller
         ]);
         }catch(ValidationException $err){return $err->getMessage(); }
 
-        $user = User::firstwhere('email', $req->email);
+        $user = user::firstwhere('email', $req->email);
 
         if($user == null or !(Hash::check($req->password, $user->password))){
             return [false, 'Incorrect username or password'];
@@ -57,7 +57,7 @@ class UserCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
     
-        $user = User::where('email',$req->email)->first();
+        $user = user::where('email',$req->email)->first();
 
         if($user == null){ return false;}
 
@@ -69,7 +69,7 @@ class UserCtrl extends Controller
     }
 
     public function delete(Request $req){
-        $user = User::where('email',$req->email)->first();
+        $user = user::where('email',$req->email)->first();
         if($user == null){ return false;}
         $user->delete();
         return true;

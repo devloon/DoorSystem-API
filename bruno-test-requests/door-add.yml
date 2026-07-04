@@ -1,0 +1,24 @@
+info:
+  name: door-add
+  type: http
+
+http:
+  method: POST
+  url: http://localhost:8000/api/door/add?name=main&location=litteraly the entrance&description=the door by which you'd enter
+  params:
+    - name: name
+      value: main
+      type: query
+    - name: location
+      value: litteraly the entrance
+      type: query
+    - name: description
+      value: the door by which you'd enter
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

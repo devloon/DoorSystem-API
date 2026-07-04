@@ -1,0 +1,25 @@
+info:
+  name: user-add
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:8000/api/user/add?name=john doe&email=john@doe.com&password=john@doe.com
+  params:
+    - name: name
+      value: john doe
+      type: query
+    - name: email
+      value: john@doe.com
+      type: query
+    - name: password
+      value: john@doe.com
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

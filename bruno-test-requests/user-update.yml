@@ -1,0 +1,25 @@
+info:
+  name: user-update
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/user/update?name=john doe&email=john@doe.com&password=jane@doe.com
+  params:
+    - name: name
+      value: john doe
+      type: query
+    - name: email
+      value: john@doe.com
+      type: query
+    - name: password
+      value: jane@doe.com
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

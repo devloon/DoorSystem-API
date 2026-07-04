@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 
 class DoorCtrl extends Controller
 {
-    public function getall(){ return Door::all();}
+    public function getall(){ return "Door::all()";}
     
     public function add(Request $req)
     {

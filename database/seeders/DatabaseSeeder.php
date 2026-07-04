@@ -2,48 +2,24 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
+    use WithoutModelEvents;
+
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
+        // User::factory(10)->create();
 
-        DB::table('Users')->insert([
-            'name'=>'test',
-            'email'=>'test@test.te',
-            'password'=>Hash::make('testtest')
-        ]);
-
-        DB::table('RfidCards')->insert([
-            'uid'=>'B2 A8 3F 61',
-            'userId'=>1
-        ]);
-
-        DB::table('RfidCards')->insert([
-            'uid'=>'DC 33 75 32',
-            'userId'=>1
-        ]);
-
-        DB::table('Doors')->insert([
-            'name'=>'C-089',
-            'description'=>'Local a Alain',
-            'location'=>'C-089'
-        ]);
-
-        DB::table('Accesses')->insert([
-            'cardId'=>1,
-            'doorId'=>1,
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
         ]);
     }
 }

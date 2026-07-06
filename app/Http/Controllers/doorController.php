@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Door;
+use App\Models\door;
 use Error;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class DoorCtrl extends Controller
+class doorController extends Controller
 {
     public function getall(){ return Door::all();}
     
@@ -21,11 +21,11 @@ class DoorCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
 
-        if(Door::where('name',$req->name)->first() != null){
+        if(door::where('name',$req->name)->first() != null){
             return ("Door already exists!");
         }
 
-        Door::create([
+        door::create([
             'name' => $req->name,
             'location' => $req->location,
             'description' => $req->description,
@@ -43,7 +43,7 @@ class DoorCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
 
-        $door = Door::where('name',$req->name)->first();
+        $door = door::where('name',$req->name)->first();
         if($door == null){return ("Door not found!");}
         $door->description = $req->description;
         $door->location = $req->location;
@@ -58,7 +58,7 @@ class DoorCtrl extends Controller
                 'name' => ['required', 'string', 'min:3', 'max:100']
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
-        $door = Door::where('name',$req->name)->first();
+        $door = door::where('name',$req->name)->first();
         if($door == null){return ("Door not found!");}
         $door->delete();
         return ("Success!");

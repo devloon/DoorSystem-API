@@ -1,0 +1,25 @@
+info:
+  name: door-update
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/door/update?name=backdoor&location=in the back&description=it's a door, and it's located in the back
+  params:
+    - name: name
+      value: backdoor
+      type: query
+    - name: location
+      value: in the back
+      type: query
+    - name: description
+      value: it's a door, and it's located in the back
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

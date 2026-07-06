@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccessCtrl;
 use App\Http\Controllers\CardCtrl;
-use App\Http\Controllers\DoorCtrl;
+use App\Http\Controllers\doorController;
 use App\Http\Controllers\LogCtrl;
 use App\Http\Controllers\userController;
 
@@ -15,10 +15,10 @@ Route::put('user/update', [userController::class, 'update']);
 Route::delete('user/delete', [userController::class, 'delete']);
 
 // doors
-Route::get('door/all', [DoorCtrl::class, 'getall']);
-Route::post('door/add', [DoorCtrl::class, 'add']);
-Route::put('door/update', [DoorCtrl::class, 'update']);
-Route::delete('door/delete', [DoorCtrl::class, 'delete']);
+Route::get('door/all', [doorController::class, 'getall']);
+Route::post('door/add', [doorController::class, 'add']);
+Route::put('door/update', [doorController::class, 'update']);
+Route::delete('door/delete', [doorController::class, 'delete']);
 
 // cards
 Route::get('card/all', [CardCtrl::class, 'getall']);

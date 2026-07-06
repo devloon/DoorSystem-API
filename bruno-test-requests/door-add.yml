@@ -1,19 +1,20 @@
 info:
   name: door-add
   type: http
+  seq: 1
 
 http:
   method: POST
-  url: http://localhost:8000/api/door/add?name=main&location=litteraly the entrance&description=the door by which you'd enter
+  url: http://localhost:8000/api/door/add?name=test&location=doesn't really exist&description=for testing purposes
   params:
     - name: name
-      value: main
+      value: test
       type: query
     - name: location
-      value: litteraly the entrance
+      value: doesn't really exist
       type: query
     - name: description
-      value: the door by which you'd enter
+      value: for testing purposes
       type: query
   auth: inherit
 

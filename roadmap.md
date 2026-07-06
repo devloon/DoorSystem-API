@@ -4,7 +4,7 @@
 - [ ] Handle user login with tokens.
 - [ ] Secure the overall thing by actually requiring a user be logged in to perform all the tasks.
 - [ ] Add MFA.
-- [x] Improve README.md (use proper markdown syntax like in here).
+- [ ] Improve README.md.
 - [ ] Come up with a good name.
 - [x] Use appropriate HTTP methods.
 - [ ] Use response codes well.

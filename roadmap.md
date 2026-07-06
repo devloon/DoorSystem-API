@@ -1,15 +1,16 @@
 ## Enhancements:
 - [x] Security patches (thanks dependabot) (ended up migrating).
 - [ ] Secure authentication and all interactions with passwords.
-- [ ] Handle user login with tokens.
+- [ ] Handle user login/logout with tokens.
 - [ ] Secure the overall thing by actually requiring a user be logged in to perform all the tasks.
-- [ ] Add MFA.
-- [ ] Improve README.md.
-- [ ] Come up with a good name.
 - [x] Use appropriate HTTP methods.
+- [ ] Add MFA.
 - [ ] Use response codes well.
+- [ ] Use id for updates and deletion of items.
 - [ ] Add error handling and logging.
+- [ ] Improve README.md.
 - [ ] Make the install process more user friendly.
+- [ ] Come up with a good name.
 - [ ] Consider switching to gRCP or GraphQL (whichever is better suited) for real-time logs.
 
 ## Desired Features:

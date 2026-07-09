@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\accessController;
 use App\Http\Controllers\keycardController;
 use App\Http\Controllers\doorController;
-use App\Http\Controllers\LogCtrl;
+use App\Http\Controllers\logController;
 use App\Http\Controllers\userController;
 
 //user
@@ -33,8 +33,8 @@ Route::post('access/check', [accessController::class, 'check']);
 Route::delete('access/delete', [accessController::class, 'delete']);
 
 //Logs
-Route::get('log/day', [LogCtrl::class, 'getPastDay']);
-Route::get('log/week', [LogCtrl::class, 'getPastWeek']);
-Route::get('log/month', [LogCtrl::class, 'getPastMonth']);
-Route::get('log/year', [LogCtrl::class, 'getPastYear']);
-Route::get('log/all', [LogCtrl::class, 'getAll']);
+Route::get('log/day', [logController::class, 'getPastDay']);
+Route::get('log/week', [logController::class, 'getPastWeek']);
+Route::get('log/month', [logController::class, 'getPastMonth']);
+Route::get('log/year', [logController::class, 'getPastYear']);
+Route::get('log/all', [logController::class, 'getAll']);

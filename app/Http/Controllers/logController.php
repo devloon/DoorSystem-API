@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Log;
+use App\Models\log;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class LogCtrl extends Controller
+class logController extends Controller
 {
     public function add(Request $req){
         try{
@@ -16,7 +16,7 @@ class LogCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
         
-        Log::create([
+        log::create([
             'cardUid' => $req->cardUid,
             'doorId' => $req->doorId
         ]);
@@ -24,7 +24,7 @@ class LogCtrl extends Controller
     }
 
     public function getAll(){
-        return Log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
+        return log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
             ->join('RfidCards', 'Logs.cardId', '=', 'RfidCards.id')
             ->select('Doors.name as doorName', 'RfidCards.uid as cardUid', 'Logs.created_at as time', 'Logs.accessGranted')
             ->orderBy('time','desc')
@@ -32,7 +32,7 @@ class LogCtrl extends Controller
     }
 
     public function getPastDay(){
-        return Log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
+        return log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
             ->join('RfidCards', 'Logs.cardId', '=', 'RfidCards.uid')
             ->select('Doors.name as doorName', 'RfidCards.uid as cardUid', 'Logs.created_at as time', 'Logs.accessGranted')
             ->where('Logs.created_at', '>=', now()->subDay())
@@ -41,7 +41,7 @@ class LogCtrl extends Controller
     }
 
     public function getPastWeek(){
-        return Log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
+        return log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
             ->join('RfidCards', 'Logs.cardId', '=', 'RfidCards.uid')
             ->select('Doors.name as doorName', 'RfidCards.uid as cardUid', 'Logs.created_at as time', 'Logs.accessGranted')
             ->where('Logs.created_at', '>=', now()->subWeek())
@@ -50,7 +50,7 @@ class LogCtrl extends Controller
     }
 
     public function getPastMonth(){
-        return Log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
+        return log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
             ->join('RfidCards', 'Logs.cardId', '=', 'RfidCards.uid')
             ->select('Doors.name as doorName', 'RfidCards.uid as cardUid', 'Logs.created_at as time', 'Logs.accessGranted')
             ->where('Logs.created_at', '>=', now()->subMonth())
@@ -59,7 +59,7 @@ class LogCtrl extends Controller
     }
 
     public function getPastYear(){
-        return Log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
+        return log::join('Doors', 'Logs.doorId', '=', 'Doors.id')
             ->join('RfidCards', 'Logs.cardId', '=', 'RfidCards.uid')
             ->select('Doors.name as doorName', 'RfidCards.uid as cardUid', 'Logs.created_at as time', 'Logs.accessGranted')
             ->where('Logs.created_at', '>=', now()->subYear())

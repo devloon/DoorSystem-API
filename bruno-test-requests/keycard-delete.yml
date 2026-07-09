@@ -1,0 +1,19 @@
+info:
+  name: keycard-delete
+  type: http
+  seq: 12
+
+http:
+  method: DELETE
+  url: http://localhost:8000/api/keycard/delete?uid=1234567899
+  params:
+    - name: uid
+      value: "1234567899"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

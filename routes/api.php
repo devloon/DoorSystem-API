@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccessCtrl;
-use App\Http\Controllers\CardCtrl;
+use App\Http\Controllers\keycardController;
 use App\Http\Controllers\doorController;
 use App\Http\Controllers\LogCtrl;
 use App\Http\Controllers\userController;
@@ -20,11 +20,11 @@ Route::post('door/add', [doorController::class, 'add']);
 Route::put('door/update', [doorController::class, 'update']);
 Route::delete('door/delete', [doorController::class, 'delete']);
 
-// cards
-Route::get('card/all', [CardCtrl::class, 'getall']);
-Route::post('card/add', [CardCtrl::class, 'add']);
-Route::put('card/update', [CardCtrl::class, 'update']);
-Route::delete('card/delete', [CardCtrl::class, 'delete']);
+// keycards
+Route::get('keycard/all', [keycardController::class, 'getall']);
+Route::post('keycard/add', [keycardController::class, 'add']);
+Route::put('keycard/update', [keycardController::class, 'update']);
+Route::delete('keycard/delete', [keycardController::class, 'delete']);
 
 // Access
 Route::get('access/all', [AccessCtrl::class, 'getall']);

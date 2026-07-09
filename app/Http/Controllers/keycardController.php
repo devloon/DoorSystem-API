@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RfidCard;
+use App\Models\keycard;
 use Error;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use PhpMqtt\Client\Facades\MQTT;
 
-class CardCtrl extends Controller
+class keycardController extends Controller
 {
-    public function getall(){return RfidCard::all();}
+    public function getall(){return keycard::all();}
     
     public function add(Request $req){
         try{ $req->validate([ 'uid'=>['required', 'string',  'min:3', 'max:100']]); }
         catch(ValidationException $err){return $err->getMessage(); }
 
-        if($card = RfidCard::where('uid',$req->uid)->first() != null){
+        if($card = keycard::where('uid',$req->uid)->first() != null){
             return ("Card exists already!");
         }
-        RfidCard::create(['uid'=>$req->uid]);
+        keycard::create(['uid'=>$req->uid]);
         return 201;
     }
 
@@ -31,7 +31,7 @@ class CardCtrl extends Controller
             ]); 
         }catch(ValidationException $err){return $err->getMessage(); }
 
-        $card = RfidCard::where('uid',$req->oldUid)->first();
+        $card = keycard::where('uid',$req->oldUid)->first();
         if($card == null){return ("Card not found!");}
         $card->uid = $req->newUid;
         $card->save();
@@ -41,7 +41,7 @@ class CardCtrl extends Controller
     public function delete(Request $req){
         try{ $req->validate([ 'uid'=>['required', 'string',  'min:3', 'max:100']]); }
         catch(ValidationException $err){return $err->getMessage(); }
-        $card = RfidCard::where('uid',$req->uid)->first();
+        $card = keycard::where('uid',$req->uid)->first();
         if($card == null){return ("Card not found!");}
         $card->delete();
         return ("Success!");

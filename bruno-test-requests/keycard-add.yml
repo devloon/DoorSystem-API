@@ -1,0 +1,19 @@
+info:
+  name: keycard-add
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: http://localhost:8000/api/keycard/add?uid=1234567890
+  params:
+    - name: uid
+      value: "1234567890"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

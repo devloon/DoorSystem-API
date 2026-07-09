@@ -1,0 +1,22 @@
+info:
+  name: keycard-update
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/keycard/update?oldUid=1234567890&newUid=1234567899
+  params:
+    - name: oldUid
+      value: "1234567890"
+      type: query
+    - name: newUid
+      value: "1234567899"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

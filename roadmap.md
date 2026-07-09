@@ -8,6 +8,7 @@
 - [ ] **Code quality:** use id for updates and deletion of items.
 - [ ] **Code quality:** use response codes well.
 - [ ] **Code quality:** add error handling, logging and reporting.
+- [ ] **Code quality:** improve naming scheme (database mainly but the rest should follow).
 - [ ] **Documentation:** improve README.md.
 - [ ] **User experience:** make the install process more user friendly.
 - [ ] **User experience:** come up with a good name.

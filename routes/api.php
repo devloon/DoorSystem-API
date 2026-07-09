@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AccessCtrl;
+use App\Http\Controllers\accessController;
 use App\Http\Controllers\keycardController;
 use App\Http\Controllers\doorController;
 use App\Http\Controllers\LogCtrl;
@@ -27,10 +27,10 @@ Route::put('keycard/update', [keycardController::class, 'update']);
 Route::delete('keycard/delete', [keycardController::class, 'delete']);
 
 // Access
-Route::get('access/all', [AccessCtrl::class, 'getall']);
-Route::post('access/add', [AccessCtrl::class, 'add']);
-Route::post('access/check', [AccessCtrl::class, 'check']);
-Route::delete('access/delete', [AccessCtrl::class, 'delete']);
+Route::get('access/all', [accessController::class, 'getall']);
+Route::post('access/add', [accessController::class, 'add']);
+Route::post('access/check', [accessController::class, 'check']);
+Route::delete('access/delete', [accessController::class, 'delete']);
 
 //Logs
 Route::get('log/day', [LogCtrl::class, 'getPastDay']);

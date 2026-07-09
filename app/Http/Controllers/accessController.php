@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Access;
-use App\Models\Door;
+use App\Models\access;
+use App\Models\door;
 use App\Models\Log;
-use App\Models\RfidCard;
+use App\Models\keycard;
 use Error;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use PhpMqtt\Client\Facades\MQTT;
 use PhpMqtt\Client\MqttClient;
 
-class AccessCtrl extends Controller
+class accessController extends Controller
 {
-    public function getAll(){return Access::all();}
+    public function getAll(){return access::all();}
 
     public function add(Request $req)
     {
@@ -25,18 +25,18 @@ class AccessCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
 
-        $card = RfidCard::where('uid', $req->cardUid)->first();
-        $door = Door::where('name', $req->doorName)->first();
+        $card = keycard::where('uid', $req->cardUid)->first();
+        $door = door::where('name', $req->doorName)->first();
 
         if($card==null or $door==null){
             return ("card or door unknown");
         }
 
-        if(Access::where('cardId', $card->id)->where('doorId', $door->id)->first() != null){
-            return ("Access exists already!");
+        if(access::where('cardId', $card->id)->where('doorId', $door->id)->first() != null){
+            return ("access exists already!");
         }
 
-        Access::create([
+        access::create([
             'cardId' => $card->id,
             'doorId' => $door->id,
         ]);
@@ -52,10 +52,10 @@ class AccessCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
 
-        $card = RfidCard::where('uid', $req->cardUid)->first();
-        $door = Door::where('name', $req->doorName)->first();
-        if($card==null or $door==null){return ("Access not found!");}
-        $access = Access::where('cardId', $card->id)->where('doorId', $door->id)->first();
+        $card = keycard::where('uid', $req->cardUid)->first();
+        $door = door::where('name', $req->doorName)->first();
+        if($card==null or $door==null){return ("access not found!");}
+        $access = access::where('cardId', $card->id)->where('doorId', $door->id)->first();
 
         if ($access==null){
             Log::create([
@@ -66,13 +66,6 @@ class AccessCtrl extends Controller
             return 0;
         }
 
-        $mqtt = new MqttClient(env('MQTT_HOST'), env('MQTT_PORT'));
-        
-        //MQTT::setCredentials(env('MQTT_USERNAME'), env('MQTT_PASSWORD'));
-        //$mqtt->setAuthentication(env('MQTT_USERNAME'), env('MQTT_PASSWORD'));
-        $mqtt->connect();
-
-        $mqtt->publish('DoorSystem/door/open', $door->name);
         Log::create([
             'cardId' => $card->id,
             'doorId' => $door->id,
@@ -90,12 +83,12 @@ class AccessCtrl extends Controller
             ]);
         }catch(ValidationException $err){return $err->getMessage(); }
 
-        $card = RfidCard::where('uid', $req->cardUid)->first();
-        $door = Door::where('name', $req->doorName)->first();
-        if($card==null or $door==null){return ("Access not found!");}
+        $card = keycard::where('uid', $req->cardUid)->first();
+        $door = door::where('name', $req->doorName)->first();
+        if($card==null or $door==null){return ("access not found!");}
 
-        $access = Access::where('cardId', $card->id)->where('doorId', $door->id)->first();
-        if($access == null){return ("Access not found!");}
+        $access = access::where('cardId', $card->id)->where('doorId', $door->id)->first();
+        if($access == null){return ("access not found!");}
         $access->delete();
         return("Success!");
     }

@@ -1,0 +1,21 @@
+info:
+  name: access-delete
+  type: http
+  seq: 16
+
+http:
+  method: DELETE
+  url: http://localhost:8000/api/access/delete?cardUid=3333&doorName=test
+  params:
+    - name: cardUid
+      value: "3333"
+      type: query
+    - name: doorName
+      value: test
+      type: query
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

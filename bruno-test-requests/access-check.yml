@@ -1,0 +1,21 @@
+info:
+  name: access-check
+  type: http
+  seq: 15
+
+http:
+  method: post
+  url: http://localhost:8000/api/access/check?cardUid=1111&doorName=main
+  params:
+    - name: cardUid
+      value: "1111"
+      type: query
+    - name: doorName
+      value: main
+      type: query
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

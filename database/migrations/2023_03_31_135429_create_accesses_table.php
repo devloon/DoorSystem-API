@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Accesses', function (Blueprint $table) {
+        Schema::create('access', function (Blueprint $table) {
             $table->smallIncrements('id')->nullable(false);
             $table->unsignedSmallInteger('cardId');
             $table->unsignedSmallInteger('doorId');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Accesses');
+        Schema::dropIfExists('access');
     }
 };

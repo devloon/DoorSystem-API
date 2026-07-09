@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('RfidCards', function (Blueprint $table) {
+        Schema::create('keycards', function (Blueprint $table) {
             $table->smallIncrements('id')->nullable(false);
             $table->string('uid')->unique();
             $table->unsignedSmallInteger('userId')->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Rfid_cards');
+        Schema::dropIfExists('keycards');
     }
 };

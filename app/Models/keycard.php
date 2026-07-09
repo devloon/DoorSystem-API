@@ -9,7 +9,7 @@ class keycard extends Model
 {
     use HasFactory;
 
-    protected $table = "RfidCards";
+    protected $table = "keycards";
     protected $hidden = ['id'];
     
     protected $fillable = [

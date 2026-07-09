@@ -9,7 +9,7 @@ class access extends Model
 {
     use HasFactory;
 
-    protected $table = 'Accesses';
+    protected $table = 'access';
     protected $hidden = ['id'];
 
     protected $fillable = [

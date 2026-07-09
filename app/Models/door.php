@@ -9,7 +9,7 @@ class door extends Model
 {
     use HasFactory;
 
-    protected $table = 'Doors';
+    protected $table = 'doors';
     protected $hidden = ['id'];
 
     protected $fillable = [

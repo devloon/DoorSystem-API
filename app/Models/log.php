@@ -9,7 +9,7 @@ class log extends Model
 {
     use HasFactory;
 
-    protected $table='Logs';
+    protected $table='logs';
     protected $hidden = ['id'];
 
     protected $fillable = [

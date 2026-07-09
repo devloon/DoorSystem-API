@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Doors', function (Blueprint $table) {
+        Schema::create('doors', function (Blueprint $table) {
             $table->smallIncrements('id')->nullable(false);
             $table->string('name')->unique();
             $table->string('location');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Doors');
+        Schema::dropIfExists('doors');
     }
 };
